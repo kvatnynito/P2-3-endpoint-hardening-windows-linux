@@ -1,243 +1,300 @@
-# P2-3: Endpoint Hardening (Windows & Linux)
+# P2-3: AWS Logging, Monitoring & Detection
 
 ## Overview
 
-This repo is planned to document practical endpoint hardening across both Windows and Linux systems.
+This repository is part of **Cybersecurity Portfolio 2: AWS Cloud Security & Engineering**.
 
-It is intended to focus on security baselines, configuration changes, validation steps, and before-and-after evidence showing how systems in the Proxmox-based lab environment are strengthened against common attack paths and misconfigurations.
+The purpose of this project is to design and document AWS-native logging, monitoring, and basic detection workflows. This lab will focus on CloudTrail, CloudWatch, GuardDuty, EventBridge, and cloud investigation concepts.
 
-This project is part of Portfolio 2 and is planned as a follow-on phase after completion of Portfolio 1, which provides the segmented lab foundation used for system deployment, testing, and validation.
+This project is planned as the third AWS-focused lab in Portfolio 2 because visibility should be established after the account and network foundations are prepared.
 
 ---
 
 ## Status
 
-**Current state:** Planned  
-**Execution state:** Not yet started  
-**Prerequisite:** Portfolio 1 completion
+**Planned**
 
-This repo is being prepared in advance so that the project scope, target systems, validation approach, and expected deliverables are already defined before hands-on hardening begins.
+This project has not been implemented yet.
 
----
+Work on this repository will begin after the required Portfolio 1 homelab foundation is completed and after the initial AWS account and VPC foundations are prepared.
 
-## Planned Objectives
+Current status:
 
-This project is intended to build practical endpoint hardening skills, including:
-
-- creating Windows and Linux hardening baselines
-- applying secure configuration changes
-- validating results with system and security tools
-- capturing before-and-after evidence
-- reducing exposure to common attacker techniques and avoidable misconfigurations
-
----
-
-## Planned Repository Structure
-
-- `docs/` — baselines, checklists, templates, hardening notes, and validation guidance
-- `lab/` — validation outputs, screenshots, and before-and-after comparisons
-- `scripts/` — optional auditing, validation, or configuration support scripts
-- `.github/` — issue or pull request templates (optional)
+- [ ] Logging design planned
+- [ ] CloudTrail event review planned
+- [ ] CloudWatch monitoring plan created
+- [ ] GuardDuty review planned
+- [ ] EventBridge alerting plan created
+- [ ] Cost-control notes created
+- [ ] Detection workflow documented
+- [ ] Screenshots and evidence collected
+- [ ] Final documentation completed
 
 ---
 
-## Planned Lab Setup
+## Portfolio Context
 
-### Host Platform
-This project is planned to use the Proxmox-based lab environment built in Portfolio 1.
+### Portfolio 1 Foundation
 
-### Planned Operating Systems
+Portfolio 1 focuses on building a local cybersecurity homelab using Proxmox, pfSense, network segmentation, Active Directory, Splunk, and vulnerable systems.
 
-#### Windows Targets
-Planned Windows systems may include:
+Portfolio 1 builds the local visibility and monitoring foundation.
 
-- Windows 10
-- Windows 11
-- Windows Server 2019
+### Portfolio 2 Direction
 
-#### Linux Targets
-Planned Linux systems may include:
+Portfolio 2 expands local infrastructure and security concepts into AWS cloud security and cloud engineering.
 
-- Ubuntu 22.04
-- Debian
-- other Linux systems already deployed in the lab as needed
-
-### Planned Network Design
-- pfSense-based segmentation carried forward from Portfolio 1
-- systems placed in the appropriate lab segment based on role and trust level
-- optional use of Active Directory later for GPO-based Windows hardening where relevant
+This repository focuses on AWS-native logging, monitoring, alerting, and investigation workflows.
 
 ---
 
-## Planned Tools
+## Project Goal
 
-### Windows
-Planned tools and validation sources may include:
+The goal of this project is to understand how AWS activity can be logged, monitored, reviewed, and used for basic detection.
 
-- Sysinternals Suite
-- PowerShell
-- Microsoft Security Baselines
-- Local Group Policy Editor (`gpedit.msc`)
-- `secedit`
-- `gpresult`
+By the end of this project, the planned AWS environment should include documentation for:
 
-### Linux
-Planned tools and validation sources may include:
-
-- Lynis
-- auditd
-- UFW
-- `iptables` where applicable
-- `sysctl`
-
-Some validation steps may later be compared against logging or telemetry collected through the broader lab environment when relevant.
+- AWS CloudTrail logging
+- CloudTrail event review
+- CloudWatch monitoring basics
+- GuardDuty finding review
+- EventBridge alerting concepts
+- Basic cloud investigation workflow
+- Logging cost-control considerations
+- Redacted evidence and screenshots
 
 ---
 
-## Planned Hardening Focus Areas
+## Planned Skills
 
-### Windows
-Planned Windows hardening areas may include:
+This project is intended to develop hands-on familiarity with:
 
-- local security policies
-- RDP restrictions
-- PowerShell logging
-- firewall configuration
-- SMB security settings
-- secure user rights assignments
-- attack surface reduction where supported
-- removal or disablement of unnecessary roles, features, or services
-
-### Linux
-Planned Linux hardening areas may include:
-
-- SSH hardening
-- password and account lockout policies
-- file permissions
-- firewall configuration
-- auditd rule validation
-- disabling unused services
-- kernel parameter hardening with `sysctl`
-- log retention and basic audit visibility
+- AWS logging concepts
+- CloudTrail
+- CloudWatch
+- GuardDuty
+- EventBridge
+- Cloud investigation workflow
+- API activity review
+- Alert triage
+- Detection documentation
+- Cloud telemetry cost control
+- Security monitoring documentation
 
 ---
 
-## Planned Validation Workflow
+## Planned AWS Services
 
-Once execution begins, the intended workflow for this repo is:
+The following AWS services and features may be used in this project:
 
-### 1. Establish a baseline
-Planned activities may include:
+| AWS Service / Feature | Planned Use |
+|---|---|
+| AWS CloudTrail | Record AWS API and account activity |
+| Amazon CloudWatch | Monitor logs, metrics, and alarms |
+| Amazon GuardDuty | Review threat detection findings |
+| Amazon EventBridge | Route events and create basic alerting workflows |
+| Amazon S3 | Optional CloudTrail log storage |
+| AWS IAM | Generate and review identity-related events |
+| Amazon EC2 | Optional test activity source |
+| Amazon VPC | Optional network activity context |
+| AWS CLI | Optional event generation and validation |
 
-- documenting the initial system state
-- recording relevant default or existing settings
-- capturing screenshots or exports before changes are applied
+---
 
-### 2. Apply hardening changes
-Planned activities may include:
+## Planned Lab Sections
 
-- adjusting local security settings
-- disabling or restricting risky services
-- applying firewall and logging improvements
-- enabling additional protections where supported by the operating system
+### 1. Logging Design
 
-### 3. Validate the results
-Planned activities may include running validation commands and collecting output.
+Planned tasks:
 
-#### Windows Validation
-Example commands may include:
+- Identify required AWS log sources
+- Document what each log source records
+- Define where logs will be reviewed
+- Identify retention and cost concerns
+- Create a basic logging workflow diagram
 
-```powershell
-Get-ProcessMitigation
-Get-MpComputerStatus
-secedit /export /cfg baseline.cfg
-gpresult /h report.html
-```
+Expected outcome:
 
-Planned evidence may include:
+> AWS logging sources are documented and connected to security monitoring use cases.
 
-- before-and-after screenshots
-- policy reports
-- mitigation status results
-- exported configuration output
+---
 
-#### Linux Validation
-Example commands may include:
+### 2. CloudTrail Event Review
 
-```bash
-sudo lynis audit system
-sudo ufw status
-cat /etc/ssh/sshd_config
-sudo sysctl -a
-```
+Planned tasks:
 
-Planned evidence may include:
+- Review CloudTrail event history
+- Identify common management events
+- Review IAM-related activity
+- Review console login events
+- Review successful and failed API activity
+- Document investigation questions
 
-- Lynis audit results
-- SSH configuration changes
-- kernel hardening output
-- firewall status and rules
-- screenshots or saved command output
+Expected outcome:
 
-### 4. Compare before and after state
-Planned activities may include:
+> CloudTrail is understood as the primary source for AWS API and account activity investigation.
 
-- documenting what changed
-- identifying security improvements made
-- noting any tradeoffs or functionality considerations
-- saving repeatable evidence in the repo
+---
+
+### 3. CloudWatch Monitoring
+
+Planned tasks:
+
+- Review CloudWatch metrics and logs
+- Identify basic monitoring use cases
+- Document alarm concepts
+- Review log group behavior
+- Identify cost-control considerations
+
+Expected outcome:
+
+> CloudWatch is understood as a monitoring and observability service for AWS resources and logs.
+
+---
+
+### 4. GuardDuty Detection Review
+
+Planned tasks:
+
+- Enable or review GuardDuty only when cost-controlled
+- Review sample findings if available
+- Document finding severity
+- Document affected resource information
+- Practice basic finding triage
+
+Expected outcome:
+
+> GuardDuty findings are reviewed and documented using a basic investigation workflow.
+
+---
+
+### 5. EventBridge Alerting Concepts
+
+Planned tasks:
+
+- Review EventBridge event patterns
+- Document how AWS events can trigger actions
+- Plan basic alerting workflow
+- Connect detection ideas to EventBridge rules
+- Avoid unnecessary complexity during initial implementation
+
+Expected outcome:
+
+> EventBridge is understood as a way to route AWS events into alerting or response workflows.
 
 ---
 
 ## Planned Deliverables
 
-This repo is expected to eventually include:
+This repository is expected to include:
 
-- Windows hardening baseline documentation
-- Linux hardening baseline documentation
-- before-and-after screenshots
-- validation reports and command output
-- optional architecture or configuration diagrams
-- helper scripts for auditing or validation
-- notes explaining security improvements made to each system
-
----
-
-## Planned Skill Areas
-
-This project is intended to help build experience in:
-
-- secure baseline development
-- Windows and Linux system hardening
-- validation of security settings
-- understanding how weak configurations are abused
-- reducing attack surface without breaking core functionality
-- documenting system changes clearly and professionally
-- applying the principle of least privilege in practical ways
+- Logging design plan
+- CloudTrail event review notes
+- CloudWatch monitoring plan
+- GuardDuty detection notes
+- EventBridge alerting plan
+- Cost-control notes
+- Detection workflow diagram
+- Redacted screenshots
+- Lessons learned
+- Final project summary
 
 ---
 
-## Planned Next Steps
+## Proposed Repository Structure
 
-When work begins on this repo, the initial implementation focus will likely be:
-
-- select the first Windows and Linux targets in the Proxmox lab
-- document baseline system state before changes
-- apply initial hardening steps
-- validate results with native tools and audit utilities
-- store before-and-after evidence in a repeatable format
-
-Future expansion may include:
-
-- Active Directory and GPO-based Windows hardening
-- Microsoft official security baseline comparisons
-- CIS benchmark comparisons
-- automated validation checks using PowerShell or Bash
-- scripts to export or compare baseline configurations
-- additional operating system coverage later if useful
+    P2-3-aws-logging-monitoring-detection/
+    ├── README.md
+    ├── docs/
+    │   ├── logging-design-plan.md
+    │   ├── cloudtrail-event-review.md
+    │   ├── cloudwatch-monitoring-plan.md
+    │   ├── guardduty-detection-notes.md
+    │   ├── eventbridge-alerting-plan.md
+    │   ├── cost-control-notes.md
+    │   └── lessons-learned.md
+    ├── diagrams/
+    │   └── README.md
+    └── screenshots/
+        └── README.md
 
 ---
 
-## License
+## Security Notes
 
-MIT — see `LICENSE`.
+Sensitive information will not be committed to this repository.
+
+This includes:
+
+- AWS account ID
+- Access keys
+- Secret access keys
+- Public IP addresses unless intentionally documented and safe
+- Private IP addresses if considered sensitive
+- Unredacted ARNs
+- Unredacted CloudTrail events containing sensitive details
+- Unredacted GuardDuty findings
+- Any credential material
+
+Screenshots and event samples will be reviewed and redacted before being uploaded.
+
+---
+
+## Cost-Control Notes
+
+This project is designed to stay within the AWS Free Tier or near-free usage.
+
+Special care will be taken with AWS logging and detection services that can generate cost, especially:
+
+- CloudWatch Logs
+- CloudWatch Alarms
+- VPC Flow Logs
+- GuardDuty after trial period
+- S3 log storage
+- EventBridge custom events
+- High-volume log ingestion
+
+The goal is to learn AWS monitoring and detection without creating unnecessary cost.
+
+---
+
+## Relationship to AWS Solutions Architect Associate
+
+This project supports foundational knowledge for the **AWS Certified Solutions Architect – Associate** certification by focusing on:
+
+- Monitoring
+- Logging
+- CloudTrail
+- CloudWatch
+- Security visibility
+- Event-driven architecture basics
+- Operational excellence
+- Cost-aware monitoring design
+
+This repository is not a certification study guide. It is a hands-on portfolio project designed to support practical AWS learning.
+
+---
+
+## Resume Skill Alignment
+
+This project is intended to support resume experience related to:
+
+- AWS logging and monitoring
+- CloudTrail event analysis
+- CloudWatch monitoring
+- GuardDuty finding review
+- EventBridge alerting concepts
+- Cloud security investigations
+- Detection documentation
+
+Example resume bullet after completion:
+
+> Configured and reviewed AWS-native logging and monitoring workflows using CloudTrail, CloudWatch, GuardDuty, and EventBridge to support cloud security visibility and basic incident investigation.
+
+---
+
+## Current Status Summary
+
+This repository is currently in the planning stage.
+
+Implementation will begin after the required Portfolio 1 foundation is completed and after the AWS account and VPC foundations are prepared.
